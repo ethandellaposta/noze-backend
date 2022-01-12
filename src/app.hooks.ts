@@ -1,4 +1,3 @@
-// Application hooks that run for every service
 // Don't remove this comment. It's needed to format import lines nicely.
 
 export default {
@@ -9,7 +8,7 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   after: {
@@ -19,7 +18,7 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -29,6 +28,6 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };
