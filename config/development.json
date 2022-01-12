@@ -42,7 +42,7 @@
     },
     "mysql": {
       "client": "mysql2",
-      "connection": "mysql://root:password@localhost:3306/nose-dev"
+      "connection": "mysql://root:password@localhost:3306/noze_dev"
     }
   }
   

@@ -3,7 +3,7 @@
 --
 -- https://tableplus.com/
 --
--- Database: noze-dev
+-- Database: noze_dev
 -- Generation Time: 2022-01-11 21:08:24.1970
 -- -------------------------------------------------------------
 
