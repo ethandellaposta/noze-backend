@@ -5,7 +5,6 @@ import postReactions from "./table/post-reactions/post-reactions.service";
 import postReactionTypes from "./table/post-reaction-types/post-reaction-types.service";
 import postItems from "./table/post-items/post-items.service";
 import postItemTypes from "./table/post-item-types/post-item-types.service";
-
 import postsMeta from "./meta/posts-meta/posts-meta.service";
 
 // Don't remove this comment. It's needed to format import lines nicely.

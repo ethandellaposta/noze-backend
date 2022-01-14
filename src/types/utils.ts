@@ -5,6 +5,10 @@ export type WithTimestamps<T> = T & {
 };
 
 export interface Point {
-  x: number;
-  y: number;
+  type: "Point";
+  coordinates: [lat: number, long: number];
+}
+export interface Location {
+  lat: number;
+  long: number;
 }
