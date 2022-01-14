@@ -1,11 +1,13 @@
-import locationDataToParams from '../../../hooks/location-data-to-params';import updateLocation from '../../../hooks/update-location';export default {
+import locationDataToParams from "../../../hooks/location-data-to-params";
+import updateLocation from "../../../hooks/update-location";
+export default {
   before: {
     all: [],
     find: [],
     get: [],
     create: [locationDataToParams()],
-    update: [],
-    patch: [],
+    update: [locationDataToParams()],
+    patch: [locationDataToParams()],
     remove: [],
   },
 
@@ -14,8 +16,8 @@ import locationDataToParams from '../../../hooks/location-data-to-params';import
     find: [],
     get: [],
     create: [updateLocation()],
-    update: [],
-    patch: [],
+    update: [updateLocation()],
+    patch: [updateLocation()],
     remove: [],
   },
 

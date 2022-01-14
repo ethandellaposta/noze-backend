@@ -1,3 +1,4 @@
+import { rest } from "@feathersjs/express";
 import { Id, NullableId, Params } from "@feathersjs/feathers";
 import { Service, MemoryServiceOptions } from "feathers-memory";
 import app from "../../../app";
@@ -30,6 +31,17 @@ export type PostCreateRequestData = {
   thread_post_id: number | null;
 };
 export type PostCreateResponseData = PostGetResponseData;
+
+export type PostUpdateRequestData = {
+  user_id: number;
+  location: Location;
+  items: {
+    id: number;
+    post_item_type_id: number;
+    data: string;
+  }[];
+  thread_post_id: number | null;
+};
 
 export class PostsMeta extends Service {
   app: Application;
@@ -86,7 +98,7 @@ export class PostsMeta extends Service {
     });
     return {
       ...post,
-      items: Promise.all(
+      items: await Promise.all(
         items.map((item) =>
           this.app.service("post-items").create({
             ...item,
@@ -98,5 +110,22 @@ export class PostsMeta extends Service {
     };
   }
 
-  async update(id: NullableId, data: any, params?: Params): Promise<any> {}
+  async update(
+    id: Id,
+    data: PostUpdateRequestData,
+    params?: Params
+  ): Promise<any> {
+    const { items, ...rest } = data;
+    return {
+      ...(await this.app.service("posts").patch(id, rest)),
+      items: await Promise.all(
+        items.map((item) => {
+          const { id, ...rest } = item;
+          return this.app
+            .service("post-items")
+            .patch(id, { ...rest, post_id: id });
+        })
+      ),
+    };
+  }
 }

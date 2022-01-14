@@ -1,3 +1,4 @@
+import { Params } from "@feathersjs/feathers";
 import { Service, KnexServiceOptions } from "feathers-knex";
 import { Application } from "../../../declarations";
 
@@ -8,5 +9,9 @@ export class Users extends Service {
       ...options,
       name: "users",
     });
+  }
+
+  async find(params?: Params): Promise<any[]> {
+    return super.find() as Promise<any[]>;
   }
 }

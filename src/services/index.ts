@@ -6,6 +6,7 @@ import postReactionTypes from "./table/post-reaction-types/post-reaction-types.s
 import postItems from "./table/post-items/post-items.service";
 import postItemTypes from "./table/post-item-types/post-item-types.service";
 import postsMeta from "./meta/posts-meta/posts-meta.service";
+import devTools from "./dev-tools/dev-tools.service";
 
 // Don't remove this comment. It's needed to format import lines nicely.
 
@@ -17,4 +18,5 @@ export default function (app: Application): void {
   app.configure(postItems);
   app.configure(postItemTypes);
   app.configure(postsMeta);
+  app.configure(devTools);
 }
